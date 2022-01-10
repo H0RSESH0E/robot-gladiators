@@ -64,9 +64,15 @@ var fight = function(enemyName) {
   };
 
 // run fight function to start game
-for(var i =0; i < enemyNames.length; i++){
-  debugger;
+for(var i =0;( i < enemyNames.length + 1 ); i++){
+  if (playerHealth > 0) {
+    window.alert("Welcome to round " + (i+1) )
+    debugger;
   enemyHealth = 50;
   var pickedEnemyName = enemyNames[i];
   fight(pickedEnemyName);
+  }
+  else {
+    window.alert("You have lost your robot in battle! GAME OVER")
+  }
 }
