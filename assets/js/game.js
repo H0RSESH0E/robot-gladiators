@@ -35,24 +35,21 @@ var fightOrSkip = function() {
       return true;
     }
     else {
-      return fightOrSkip;
+      return fightOrSkip();
     }
     
     }
   else {
     return false;
+
   }
 }
 
 var fight = function(enemy) {
 
   while (playerInfo.health > 0 && enemy.health > 0) {
-    // ask player if they'd like to fight or run
-    debugger;
-    fightOrSkip();
     
-    console.log(fightOrSkip)
-        if (fightOrSkip){
+         if (fightOrSkip()){
           break;
         }
     debugger;
