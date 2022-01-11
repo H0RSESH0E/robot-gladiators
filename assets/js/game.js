@@ -17,9 +17,9 @@ var fightOrSkip = function() {
   // Conditional Recursive Function Call
   if (promptFight === "" || promptFight === null || promptFight === false) {
     window.alert("You need to provide a valid answer! Please try again.");
-    debugger;
+    
     return fightOrSkip();
-    debugger;
+    
   }
 
   promptFight = promptFight.toLowerCase()
@@ -52,7 +52,7 @@ var fight = function(enemy) {
          if (fightOrSkip()){
           break;
         }
-    debugger;
+    
     // remove enemy's health by subtracting the amount set in the playerInfo.attack variable
     var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
 
@@ -97,6 +97,7 @@ var fight = function(enemy) {
 var startGame = function() {
   // reset player stats
   playerInfo.reset();
+  console.log(playerInfo)
 
   // fight each enemy robot by looping over them and fighting them one at a time
   for (var i = 0; i < enemyInfo.length; i++) {
@@ -161,13 +162,12 @@ var endGame = function() {
 var shop = function() {
   // ask player what they'd like to do
   var shopOptionPrompt = window.prompt(
-    'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
+    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
   );
-
+  shopOptionPrompt = parseInt(shopOptionPrompt);
   // use switch case to carry out action
   switch (shopOptionPrompt) {
-    case 'REFILL':
-    case 'refill':
+    case 1:
       if (playerInfo.money >= 7) {
         window.alert("Refilling player's health by 20 for 7 dollars.");
 
@@ -179,8 +179,7 @@ var shop = function() {
         window.alert("You don't have enough money!");
     }
       break;
-    case 'UPGRADE':
-    case 'upgrade':
+    case 2:
       if (playerInfo.money >= 7) {
         window.alert("Upgrading player's attack by 6 for 7 dollars.");
 
@@ -192,8 +191,7 @@ var shop = function() {
         window.alert("You don't have enough money!");
     }
       break;
-    case 'LEAVE':
-    case 'leave':
+    case 3:
       window.alert('Leaving the store.');
 
       // do nothing, so function will end
@@ -220,12 +218,7 @@ var getPlayerName = function() {
   var name = "";
   while (name === "" || name === null) {
     name = prompt("What is your robot's name?")
-    
-// ***************************************
-// ADD LOOP HERE WITH PROMPT AND CONDITION
-// ***************************************
-
-}
+  }
   console.log("Your robot's name is " + name);
   return name;
 };
